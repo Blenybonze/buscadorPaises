@@ -19,6 +19,8 @@ export class PorPaisComponent {
 
     this.PaisService.buscarPais(this.txtBusca)
       .subscribe((resp) => {
+        console.log(resp);
+
       }, (err) => {
         this.haErro = true;
       });

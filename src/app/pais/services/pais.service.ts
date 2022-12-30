@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pais } from '../interfaces/pais.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ export class PaisService {
   private _apyUrl: string = 'https://restcountries.com/v3.1';
 
   //todo tipo observable/resposta
-  buscarPais(txtBusca: string): Observable<any> {
+  buscarPais(txtBusca: string): Observable<Pais[]> {
     const url = `${this._apyUrl}/name/${txtBusca}`;
 
-    return this.http.get(url);
+    return this.http.get<Pais[]>(url);
   }
 
 }
