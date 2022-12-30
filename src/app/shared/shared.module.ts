@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+//Components
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+
+//Modules
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,10 +18,11 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   exports: [
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
