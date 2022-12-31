@@ -18,3 +18,9 @@
         </button>
     </div>
 </div>
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-paises-tabela [paises]="paises"></app-paises-tabela>
+    </div>
+</div>
