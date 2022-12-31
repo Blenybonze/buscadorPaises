@@ -24,10 +24,9 @@ export class PorRegiaoComponent {
 
     this.regiaoAtiva = regiao;
     this.paises = [];
-    
+
     this.paisService.buscarRegiao(regiao)
       .subscribe(resp => {
-        console.log(resp);
         this.paises = resp;
       })
   }

@@ -1,36 +1,41 @@
-<div *ngIf="!pais; else divPais" class="alert alert-info">
+<div class="animate__animated animate__fadeIn" *ngIf="!pais; else divPais" class="alert alert-info">
     Espere por favor ...
 </div>
 
 <ng-template #divPais>
-    <div class="row">
-        <div class="col-12">
-            <h1>País: {{pais.name.common}}</h1>
+    <div class="animate__animated animate__fadeIn">
+
+        <div class="row">
+            <div class="col-12">
+                <h1>País: {{pais.name}}</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <h3>Bandeira</h3>
-            <img [src]="pais.flags.png" class="img-thumbnail">
+        
+        <div class="row">
+            <div class="col-4">
+                <h3>Bandeira</h3>
+                <img [src]="pais.flag" class="img-thumbnail">
+            </div>
+
+            <div class="col">
+                <h3>Informação</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>População</strong> {{pais.population |number}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Área</strong> {{pais.area |number}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Região</strong> {{pais.region}}
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col">
-            <h3>Informação</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <strong>População</strong> {{pais.population |number}}
-                </li>
-                <li class="list-group-item">
-                    <strong>Área</strong> {{pais.area |number}}
-                </li>
-                <li class="list-group-item">
-                    <strong>Região</strong> {{pais.region}}
-                </li>
-            </ul>
-        </div>
-    </div>
+        <pre class="mt-5">
+            {{pais | json}}
+        </pre>
 
-    <pre class="mt-5">
-        {{pais | json}}
-    </pre>
+    </div>
 </ng-template>

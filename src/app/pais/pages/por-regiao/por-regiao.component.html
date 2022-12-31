@@ -3,17 +3,12 @@
 
 <h5>Selecione uma região</h5>
 
-<div class="row">
+<div class="row animate__animated animate__fadeIn">
     <div class="col">
-        <!-- [class.btn-primary]="regiao === regiaoAtiva" -->
-        <!-- [ngClass]="{
-            'btn-primary': regiao === regiaoAtiva,
-            'btn-outline-primary': regiao !== regiaoAtiva
-        }"  -->
         <button 
-        *ngFor="let regiao of regioes"
-        [class]="getClasseCSS(regiao)"         
-        (click)="ativarRegiao(regiao)">
+            *ngFor="let regiao of regioes"
+            [class]="getClasseCSS(regiao)"         
+            (click)="ativarRegiao(regiao)">
             {{regiao}}
         </button>
     </div>

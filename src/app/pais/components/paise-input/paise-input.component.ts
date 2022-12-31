@@ -12,11 +12,16 @@ export class PaiseInputComponent implements OnInit {
   digita: Subject<string> = new Subject();
 
   @Input() placeholder: string = ''
-  @Output() onEnter: EventEmitter<string> = new EventEmitter;
+  @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  @Output() onDigita: EventEmitter<string> = new EventEmitter();
 
 
   ngOnInit(): void {
-    
+    this.digita
+      .pipe(debounceTime(300))
+      .subscribe(valor => {
+        this.onDigita.emit(valor);
+      })
   }
 
   buscar() {
